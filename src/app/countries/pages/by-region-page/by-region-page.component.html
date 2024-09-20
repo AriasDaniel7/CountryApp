@@ -1,0 +1,16 @@
+<div class="col text-center mt-4">
+  @for (region of regions; track $index) {
+  <button
+    class="btn mx-2 my-2"
+    [ngClass]="{ 'btn-outline-primary': region === selectedRegion }"
+    (click)="searchByRegion(region)"
+  >
+    {{ region }}
+  </button>
+  }
+</div>
+
+@if(isLoading){
+<shared-loading-spinner></shared-loading-spinner>
+}
+<countries-country-table [countries]="countries"></countries-country-table>
